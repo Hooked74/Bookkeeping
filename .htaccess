@@ -1,0 +1,10 @@
+Options -Indexes
+php_flag magic_quotes_gpc Off
+php_flag register_globals Off
+RewriteEngine on
+
+RewriteRule ^([A-Za-z]+)/?$ index.php?c=$1
+RewriteRule ^assets/(.+)/?$ assets/$1
+RewriteRule ^ajax/([A-Za-z_]+)/?$ index_ajax.php?ajaxReqHandler=$1
+RewriteRule ^ajax/([A-Za-z_]+)/([0-9]{1,9})/?$ index_ajax.php?ajaxReqHandler=$1&id=$2
+RewriteRule ^ajax/([A-Za-z_]+)/([0-9]{1,2})/([0-9]{1,9})?$ index_ajax.php?ajaxReqHandler=$1&report_type=$2&id=$3
