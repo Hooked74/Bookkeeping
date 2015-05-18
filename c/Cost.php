@@ -1,16 +1,14 @@
 <?php
 final class Cost extends Page
 {
+  use Transactions;
+  
+  const CLASS_NAME_LOWERCASE = 'cost';
+  const TITLE = 'расход';
+  
   public function __construct()
-	{
- 
-	}
-
-	protected function onDisplay()
-	{
-    $params = array ();
-		$content = new Template('cost.tpl', $params);
-    $this->pageParams['content'] = $content->getView();
-		parent::onDisplay();
-	}
+	{ 
+    $this->addTrasactionsAssets();  
+    $this->setNavigation(Cost::CLASS_NAME_LOWERCASE);
+	} 
 }

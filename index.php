@@ -24,7 +24,7 @@ try {
       $controller = new Page();   
   }  
   $controller->render(); 
-} catch (MyException $e) {
-  $pageError = new Page($e->getMessage(), $e->getCode()); 
-  $pageError->render();
+} catch (MyException $e) {  
+  var_dump($e->getMessage());
+  Page::renderError($e->getMessage(), $e->getCode());
 } 
