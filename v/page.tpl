@@ -19,11 +19,11 @@
   <meta name="copyright" content="Some Inc." />
   
   <? foreach($this->styles as $style): ?>
-		<link href="/assets/css/<?= $style ?>" rel="stylesheet" />
+		<link href="/assets/css/<?= $style ?>.css" rel="stylesheet" />
 	<? endforeach; ?>
 
 	<? foreach($this->vendors as $vendor): ?>
-		<script src="/assets/vendors/<?= $vendor ?>"></script>
+		<script src="/assets/vendors/<?= $vendor ?>.js"></script>
 	<? endforeach; ?>
 
 </head>
@@ -32,6 +32,7 @@
   <main class="site-wrapper">
     <div class="site-wrapper-inner">
       <div class="cover-container">
+        <nav class="masthead clearfix"><?= $this->navigation ?></nav>
             
         <?= $this->content ?>
   
@@ -47,7 +48,7 @@
   </main>
   
   <? if ($this->mainScript): ?>
-  <script src="/assets/scripts/<?= $this->mainScript ?>"></script>
+  <script src="/assets/scripts/<?= $this->mainScript ?>.js"></script>
   <? endif; ?>
 </body>
 </html>

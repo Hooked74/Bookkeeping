@@ -1,0 +1,36 @@
+.modal {
+  text-shadow: none;    
+}
+
+.modal-header,
+.modal-footer {
+  border-color: #ccc;  
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  border: 3px dotted #bbb;
+}
+
+.modal select {
+  cursor: pointer;
+}
+
+.modal option {
+  font-size: 15px;
+}
+
+.modal textarea {
+  height: 100px;
+  resize: none;
+}
+
+.modal .input-group-btn {
+  font-size: inherit;
+  padding-left: 10px;
+}
+
+.modal #newCategory {
+  padding-left: 7px;
+}

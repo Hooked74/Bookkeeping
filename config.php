@@ -11,7 +11,8 @@ ini_set('include_path', ini_get('include_path').
   $spr.getenv('DOCUMENT_ROOT').
   $spr.getenv('DOCUMENT_ROOT').'/m/'.
   $spr.getenv('DOCUMENT_ROOT').'/v/'.
-  $spr.getenv('DOCUMENT_ROOT').'/c/'
+  $spr.getenv('DOCUMENT_ROOT').'/c/'.
+  $spr.getenv('DOCUMENT_ROOT').'/c/trait/'
 );
 
 function __autoload($ClassName)

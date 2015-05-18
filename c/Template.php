@@ -6,7 +6,8 @@ class Template
 
 	public function __construct($template, $prms = array())
 	{
-    $this->_template = $template;
+    $ext = '.tpl';    
+    $this->_template = !!preg_match('/\\' . $ext. '$/i', $template) ? $template : $template . $ext;
     $this->_var = $prms;
 	}
 

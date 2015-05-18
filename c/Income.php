@@ -1,17 +1,14 @@
 <?php
 final class Income extends Page
-{
+{  
+  use Transactions;
+  
+  const CLASS_NAME_LOWERCASE = 'income';
+  const TITLE = 'доход';
+  
   public function __construct()
 	{ 
-        
-	}
-
-	protected function onDisplay()
-	{   
-    $params = array ();
-		$content = new Template('income.tpl', $params);
-    $this->pageParams['content'] = $content->getView();   
-    
-		parent::onDisplay();    
-	}
+    $this->addTrasactionsAssets();  
+    $this->setNavigation(Income::CLASS_NAME_LOWERCASE);
+	}  
 }

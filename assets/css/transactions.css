@@ -1,0 +1,74 @@
+.add-new-transaction {
+  text-align: right;
+  color: #555;  
+}
+
+.lists {
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 10px;
+  text-shadow: none;
+} 
+
+.lists::-webkit-scrollbar {
+  width: auto;
+}
+ 
+.income .lists::-webkit-scrollbar-thumb {
+  background-color: green;
+}
+
+.income .lists::-webkit-scrollbar-track-piece {
+  background-color: #C2EAB7;  
+}
+
+.cost .lists::-webkit-scrollbar-thumb {
+  background-color: maroon;
+}
+
+.cost .lists::-webkit-scrollbar-track-piece {
+  background-color: #EAB7B7;  
+}
+
+.income .list-group-item.active,
+.income .list-group-item.active:hover {
+  text-shadow: 0 -1px 0 #319926;
+  background-image: -webkit-linear-gradient(top, #2cb71d 0, #18820d  100%);
+  background-image: -o-linear-gradient(top, #2cb71d 0, #18820d  100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2cb71d), to(#18820d));
+  background-image: linear-gradient(to bottom, #2cb71d 0, #18820d 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff2cb71d', endColorstr='#ff18820d', GradientType=0);
+  background-repeat: repeat-x;
+  border-color: #18820d; 
+}
+
+.cost .list-group-item.active,
+.cost .list-group-item.active:hover {
+  text-shadow: 0 -1px 0 #992626;
+  background-image: -webkit-linear-gradient(top, #B71D1D 0, #820D0D  100%);
+  background-image: -o-linear-gradient(top, #B71D1D 0, #820D0D  100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#B71D1D), to(#820D0D ));
+  background-image: linear-gradient(to bottom, #B71D1D 0, #820D0D 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffB71D1D', endColorstr='#ff820D0D', GradientType=0);
+  background-repeat: repeat-x;   
+  border-color: #820D0D;
+}
+
+.modal,
+.list-group-item:not(.active){
+  text-align: left;
+  color: #444;  
+}
+
+.list-group-item:nth-child(even) {
+  background-color: #ccc;
+}
+
+.income .badge {
+  background-color: #42b223;
+}
+
+.cost .badge {
+  background-color: #c91a1a;
+}  
