@@ -1,23 +1,33 @@
-<?php
-require_once('config.php');
+<?php 
+interface iGenerateToken {
+  const SECRET_KEY = 'JKnUuAuTnZNwz6MURU3xioTaUCffjgPLM5w8PMzD';
+  const UID = 'dbdcc249b3856fbfd98e099c15c32340';
+  
+  public function createToken(); 
+}
 
-class Connection
-{    
-    private static $instance;    
+class Connection implements iGenerateToken
+{ 
+    const FIREBASE_URL = 'https://bookkeeping.firebaseio.com';
+    private static $instance; 
+       
     public static function Instance()
-    {
-        try{
-            if(self::$instance == NULL){         
-                self::$instance = new PDO('mysql:host=localhost; dbname=' . __DB_NAME__, 
-                    __DB_LOGIN__, __DB_PASSWORD__,
-                    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-				        self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
-            return self::$instance;
-        }
-        catch(PDOException $err)
-        {
-            throw new MyException($err->getMessage(), 500);
-        }
+    {        
+      if(self::$instance == NULL){         
+          $conn = new Connection();          
+          $token = $conn->createToken(); 
+            
+          include 'vendors/autoload.php';       
+          self::$instance = new \Firebase\FirebaseLib(self::FIREBASE_URL, $token);                         
+      }
+      return self::$instance;        
+    }  
+    
+    private function __construct(){}  
+    
+    public function createToken() {
+      include "FirebaseToken.php";
+      $tokenGen = new Services_FirebaseTokenGenerator(self::SECRET_KEY);
+      return $tokenGen->createToken(array("uid" => self::UID));  
     }
 }
