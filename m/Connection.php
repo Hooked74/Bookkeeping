@@ -16,8 +16,7 @@ class Connection implements iGenerateToken
       if(self::$instance == NULL){         
           $conn = new Connection();          
           $token = $conn->createToken(); 
-            
-          include 'vendors/autoload.php';       
+          include 'vendors/autoload.php';
           self::$instance = new \Firebase\FirebaseLib(self::FIREBASE_URL, $token);                         
       }
       return self::$instance;        
