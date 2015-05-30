@@ -8,7 +8,7 @@ final class Cost extends Page
   
   public function __construct()
 	{ 
-    $this->addTrasactionsAssets();  
+    $this->_addTrasactionsAssets();  
     $this->setNavigation(Cost::CLASS_NAME_LOWERCASE);
 	} 
 }

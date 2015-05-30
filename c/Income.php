@@ -8,7 +8,7 @@ final class Income extends Page
   
   public function __construct()
 	{ 
-    $this->addTrasactionsAssets();  
+    $this->_addTrasactionsAssets();  
     $this->setNavigation(Income::CLASS_NAME_LOWERCASE);
 	}  
 }
