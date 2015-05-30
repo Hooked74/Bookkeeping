@@ -1,6 +1,6 @@
 <?php
 trait Transactions
-{
+{  
   private function _addTrasactionsAssets()
 	{ 
     array_push($this->pageParams['styles'], 'bootstrap-datepicker3.standalone.min', 'transactions', 'modal'); 
@@ -9,11 +9,17 @@ trait Transactions
 	}  
   
   private function _generateParameters() 
-  {
+  {    
     return array(
       'mainClass' => self::CLASS_NAME_LOWERCASE,
-      'title' => self::TITLE
+      'title' => self::TITLE,
+      'categories' => $this->_getCategories()
     );
+  }
+  
+  private function _getCategories()  
+  {
+    return json_decode($this->db->get(self::CLASS_NAME_LOWERCASE . '/categories'));  
   }
 
 	protected function onDisplay()
@@ -23,5 +29,5 @@ trait Transactions
     $this->pageParams['content'] = $content->getView();   
     
 		parent::onDisplay();    
-	}
+	}  
 }

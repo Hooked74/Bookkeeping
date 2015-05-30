@@ -277,8 +277,8 @@ class ClassLoader
      * @param bool $prepend Whether to prepend the autoloader or not
      */
     public function register($prepend = false)
-    {      
-        spl_autoload_register(array($this, 'loadClass'), true, $prepend);        
+    {
+        spl_autoload_register(array($this, 'loadClass'), true, $prepend);
     }
 
     /**
@@ -296,7 +296,7 @@ class ClassLoader
      * @return bool|null True if loaded, null otherwise
      */
     public function loadClass($class)
-    {  
+    {
         if ($file = $this->findFile($class)) {
             includeFile($file);
 
@@ -312,13 +312,13 @@ class ClassLoader
      * @return string|false The path if found, false otherwise
      */
     public function findFile($class)
-    {       
+    {
         // work around for PHP 5.3.0 - 5.3.2 https://bugs.php.net/50731
         if ('\\' == $class[0]) {
             $class = substr($class, 1);
         }
 
-        // class map lookup       
+        // class map lookup
         if (isset($this->classMap[$class])) {
             return $this->classMap[$class];
         }
@@ -326,7 +326,7 @@ class ClassLoader
             return false;
         }
 
-        $file = $this->findFileWithExtension($class, '.php');        
+        $file = $this->findFileWithExtension($class, '.php');
 
         // Search for Hack files if we are running on HHVM
         if ($file === null && defined('HHVM_VERSION')) {
@@ -345,7 +345,7 @@ class ClassLoader
     {
         // PSR-4 lookup
         $logicalPathPsr4 = strtr($class, '\\', DIRECTORY_SEPARATOR) . $ext;
-        
+
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
             foreach ($this->prefixLengthsPsr4[$first] as $prefix => $length) {

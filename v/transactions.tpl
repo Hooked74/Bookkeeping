@@ -101,10 +101,9 @@
               <label for="category" class="control-label">Категория:</label>             
               <div class="input-group">                              
                 <select class="form-control" id="category">
-                  <option value="1">Работа</option>
-                  <option value="2">Подработка</option>
-                  <option value="3">Грабеж</option>
-                  <option value="4">Барыга</option>             
+                  <? foreach($this->categories as $key => $category): ?>               
+                    <option value="<?= $key ?>"><?= $category ?></option>
+                	<? endforeach; ?>                                        
                 </select> 
                 <span class="input-group-btn">
                   <button type="button" id="newCategory"><i class="glyphicon glyphicon-plus"></i></button>
