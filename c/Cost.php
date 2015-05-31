@@ -11,6 +11,7 @@ final class Cost extends Page
   public function __construct()
 	{ 
     $this->db = Connection::Instance(); 
+    $this->_addNewRecord();
     $this->_addTrasactionsAssets();  
     $this->setNavigation(Cost::CLASS_NAME_LOWERCASE);
 	} 

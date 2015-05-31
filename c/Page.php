@@ -18,7 +18,7 @@ class Page extends BaseController {
   }
   
   public function __construct($err = array())
-	{
+	{   
     $this->setNavigation(); 
     $content = empty($err) 
       ? new Template('default') 

@@ -1,8 +1,25 @@
-$('#category').prop('selectedIndex', -1);
+var $category = $('#category');
+
+$category.prop('selectedIndex', -1);
 
 $('#newCategory').click(function() {
   var category = $.trim(prompt('Введите наименование новой категории.'));  
   if (!category) return;
+  $.post('/ajax/newcategory', {
+    category: category,
+    transaction: $('#transactions').data('transactions'),
+    index: $category.children().length  
+  }, function(data) {
+    try {data = JSON.parse(data);} catch(e) {}
+    if (data.type == 'error') {
+      return console.error('(POST /ajax/newcategory)', data.message);
+    }    
+    $('<option />', {
+      value: data.id,
+      html: data.category
+    }).appendTo($category);
+    $category.prop('selectedIndex', -1);
+  });
 }); 
 
 $('#summ').keypress(function(e){
@@ -19,3 +36,7 @@ $('#date').datepicker({
   todayHighlight: true    
 })
 .datepicker('update', new Date());
+
+$('#newRecord').click(function(){
+  $('#transactionModal form button[type=submit]').click();
+});

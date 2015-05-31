@@ -65,10 +65,14 @@
   background-color: #ccc;
 }
 
+.list-group-item-text {
+  min-height: 18px;
+}
+
 .income .badge {
   background-color: #42b223;
 }
 
 .cost .badge {
   background-color: #c91a1a;
-}  
+}
