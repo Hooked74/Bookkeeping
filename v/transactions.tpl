@@ -5,25 +5,7 @@
       <i class="glyphicon glyphicon-plus"></i> Новый <?=$this->title?>
     </button>
   </p>
-  <div class="lists"> 
-    <? if(empty((array)$this->records)): ?>
-      Нет данных 
-    <? endif; ?> 
-    <? foreach($this->records as $date => $oneDateRecords): ?>               
-      <div class="list-group">
-        <span href="#" class="list-group-item active list-header">
-          <h4 class="list-group-item-heading"><?=$date?></h4>        
-        </span>
-        <? foreach($oneDateRecords as $record): ?>      
-          <span href="#" class="list-group-item">
-            <h4 class="list-group-item-heading"><?=$record['category']?></h4>  
-            <span class="badge"><?=$record['summ']?></span>
-            <p class="list-group-item-text"><?=$record['comment']?></p>             
-          </span>  
-        <? endforeach; ?> 
-      </div>
-  	<? endforeach; ?> 
-  </div>
+  <div class="lists"><?=$this->recordsHTML?></div>
   <div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

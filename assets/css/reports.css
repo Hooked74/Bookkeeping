@@ -1,0 +1,25 @@
+#reportrange {
+  background: #fff; 
+  cursor: pointer; 
+  padding: 5px 10px; 
+  border: 1px solid #ccc;
+  text-shadow: none;
+  color: #555; 
+  display: inline-block;
+  text-align:right;
+}
+
+.lists {
+  padding: 0 10px;
+  text-shadow: none;
+  clear:both;
+}
+
+.list-group-item:not(.active){
+  text-align: left;
+  color: #444;  
+}
+
+.progress-bar {
+  width: 0;
+}

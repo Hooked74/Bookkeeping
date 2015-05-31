@@ -1,6 +1,8 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 
+define('DATE_SEPARATOR', 'l');
+
 $spr = getenv('COMSPEC')? ";" : ":";
 
 ini_set('include_path', ini_get('include_path').

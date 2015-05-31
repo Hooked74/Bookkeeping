@@ -1,6 +1,6 @@
 <?php
 abstract class BaseController
-{
+{  
   abstract protected function onDisplay();
 
   public function render() {   

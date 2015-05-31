@@ -30,7 +30,7 @@ $('#summ').keypress(function(e){
 });
 
 $('#date').datepicker({
-  format: 'dd MM yyyy г.',
+  format: 'dd.mm.yyyy',
   language: 'ru',
   autoclose: true,
   todayHighlight: true    
